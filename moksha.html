@@ -41,7 +41,14 @@
           <td></td>
         </tr>
         <tr>
-          <td><input id="regex" size="28" /></td>
+          <!--<td><select id="regex" width="28" /></td>-->
+          <td>
+            <input type="text" list="regex_list" size="28" id="regex"/>
+            <datalist id="regex_list">
+                <option value="^">
+                <option value="$">
+            </datalist>
+          </td>
           <td><input id="replacement" size="28" /></td>
           <td>
             <table id="input_buttons">

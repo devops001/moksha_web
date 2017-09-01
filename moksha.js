@@ -63,6 +63,12 @@ $(document).ready(function() {
 
   $("#replaceButton").click(function() {
     var pattern     = document.getElementById("regex").value;
+
+    //record the regex for future use
+    document.getElementById("regex_list").innerHTML =
+      document.getElementById("regex_list").innerHTML +
+      '<option value="' + pattern + '">';
+
     var replacement = document.getElementById("replacement").value;
     var selected    = getSelected();
     if (textbox.value != tt.currentVersion()) {
