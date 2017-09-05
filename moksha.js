@@ -62,12 +62,19 @@ $(document).ready(function() {
   });
 
   $("#replaceButton").click(function() {
-    var pattern     = document.getElementById("regex").value;
+    var pattern = document.getElementById("regex").value;
 
-    //record the regex for future use
-    document.getElementById("regex_list").innerHTML =
-      document.getElementById("regex_list").innerHTML +
-      '<option value="' + pattern + '">';
+    var regexElements = document.getElementById("regex_list").children;
+    var optionValues = [];
+    for (i = 0; i < regexElements.length; i++) {
+      optionValues.push(regexElements[i].value);
+    }
+
+    if(optionValues.includes(pattern) != true)
+    {
+      var regexList = document.getElementById("regex_list")
+      regexList.innerHTML = regexList.innerHTML + '<option value="' + pattern + '">';
+    }
 
     var replacement = document.getElementById("replacement").value;
     var selected    = getSelected();
